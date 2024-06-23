@@ -23,7 +23,5 @@ void setup() {
 }
 
 void loop() {
-  simpleOTA->checkUpdates(300); 
-  delay(1000);
-  Serial.print("update riuscito");
+  simpleOTA->checkUpdates(300);
 }
