@@ -2,8 +2,9 @@
 #include "SimpleOTA.h"
 #include "Certify.h"
 #include "WiFiManager.h"
+#include "secret_data.h"
 
-Certify cert("http://lucadalessandro.tech/domotica/api/get/fingerprint");
+Certify cert("http://SERVER_ADDRESS/domotica/api/get/fingerprint");
 SimpleOTA *simpleOTA = new SimpleOTA();
 const char* fingerPrint;
 
@@ -18,7 +19,7 @@ void setup() {
     fingerPrint = cert.getFingerprint();
     Serial.println("starting OTA");
     Serial.println(fingerPrint);
-    simpleOTA->begin(512, "lucadalessandro.tech", fingerPrint, "TOKEN_ID");
+    simpleOTA->begin(512, SERVER_ADDRESS, fingerPrint, TOKEN_ID);
   }
 }
 

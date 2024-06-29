@@ -3,7 +3,6 @@
 
 #include <EEPROM.h>   
 #include "MyFirmware.h"
-#include "SimpleOTA.h"
 
 class FirmwareData {
 private:

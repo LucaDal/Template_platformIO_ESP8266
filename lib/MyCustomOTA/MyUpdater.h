@@ -3,7 +3,6 @@
 
 #include "MyUpdater.h"
 #include <ESP8266httpUpdate.h>
-#include "SimpleOTA.h"
 
 class MyUpdater{
     public:

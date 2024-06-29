@@ -7,7 +7,6 @@
 #include <WiFiClientSecureBearSSL.h>
 #include "MyUpdater.h"
 #include "MyFirmware.h"
-#include "SimpleOTA.h"
 
 class Network {
 private:
