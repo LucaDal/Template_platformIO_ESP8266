@@ -2,8 +2,10 @@ import json
 from requests import get, post
 import sys
 
+IP = "IP_ADDRESS"
+
 def get_version_from_TOKEN(TOKEN):
-    data_TOKEN = get("https://ServerIP{}".format(TOKEN)).text
+    data_TOKEN = get("https://{}/ota/api/get/version/{}".format(IP,TOKEN)).text
     if data_TOKEN == "none" or data_TOKEN is None:
         return None
     return json.loads(data_TOKEN)["version"]
@@ -32,7 +34,7 @@ def start_upload(firmware_path, token):
     print("New version: {} => {}\n".format(version,new_version))
 
     res = post(
-        url='https://ServerIP',
+        url="https://{}/ota/uploader".format(IP),
         data={'token': token, 'version': new_version},
         files= {'file': open(firmware_path,'rb')})
     
@@ -45,3 +47,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
